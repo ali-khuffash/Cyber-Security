@@ -1,0 +1,18 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      addresses:
+        - 192.168.1.210/24
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+          addresses: [192.168.1.1, 1.1.1.1]
+
+
+- Make sure you set the network to Bridge Adapter.
+- Make sure the interface (like enp0s3 or others) is the one assigned with the IP address
+- Make sure you're connected to the lab network, not the university network.
+- In Windows configurations, always pay attention to the DNS settings in all cases—whether it's a File Server, Domain Controller, or even a Client.

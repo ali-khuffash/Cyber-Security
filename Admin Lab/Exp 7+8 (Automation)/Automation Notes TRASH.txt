@@ -1,0 +1,57 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      addresses:
+        - 192.168.1.102/24
+      routes:
+        - to: default
+          via: 192.168.1.254
+      nameservers:
+          addresses: [192.168.1.254, 1.1.1.1]
+
+
+
+sudo netplan try
+sudo netplan apply
+
+50-cloud-init.yaml
+sudo nano /etc/netplan/50-cloud-init.yaml
+sudo nano /etc/netplan/01-network-manager-all.yaml
+
+---------------------------------------------------------------------------------------------------
+
+
+scp ~/.ssh/ansible student@192.168.1.211:/home/student/.ssh/ansible 
+scp ~/.ssh/ansible.pub student@192.168.1.211:/home/student/.ssh/ansible.pub
+
+
+
+
+ssh-copy-id -i ~/.ssh/ansible.pub student@192.168.1.214
+
+
+
+ ssh student@192.168.1.209
+ ssh student@192.168.1.210
+ ssh student@192.168.1.212
+
+
+
+--------------------------------------------------------------------------------
+git commit -m "Ali created inventory file and added SRVR01 and SRVR02"
+
+_____-----------------------------_______________---------------------------___________
+ To run a command on all servers:
+ Workstation1~/nislab$ ansible all --key-file ~/.ssh/ansible -i inventory -m ping
+
+هاي الي الامر الي فوق 
+in servers :sudo apt update
+sudo apt install python3-pip -y
+
+
+
+
+
+
